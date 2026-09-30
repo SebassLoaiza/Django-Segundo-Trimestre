@@ -24,6 +24,9 @@ def reservar_libro(request, id):
 
    libro = Libro.objects.get(id=id)
 
+   if Reserva.objects.filter(libro=libro).exists():
+        return redirect("/")
+
    if request.method == "POST":
 
        nombre = request.POST["nombre"]
