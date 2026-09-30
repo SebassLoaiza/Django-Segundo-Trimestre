@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Biblioteca - Sebastian</title>
+</head>
+
+<body>
+    <h1>Biblioteca - Sebastian</h1>
+    {% for libro in libros %}
+    <div>
+        <h3>{{ libro.titulo }}</h3>
+        <p>{{ libro.autor }}</p>
+
+        <a href="/reservar/{{ libro.id }}">
+            Reservar libro
+        </a>
+
+    </div>
+
+    <hr>
+
+    {% endfor %}
+
+</body>
+
+</html>
