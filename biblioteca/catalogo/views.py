@@ -7,8 +7,18 @@ def lista_libros(request):
 
    libros = Libro.objects.all()
 
-   return render(request, "lista.html", {"libros": libros})
+   libros_con_estado = []
 
+   for libro in libros:
+
+       reservado = Reserva.objects.filter(libro=libro).exists()
+
+       libros_con_estado.append({
+           "libro": libro,
+           "reservado": reservado
+       })
+
+   return render(request, "lista.html", {"libros": libros_con_estado})
 
 def reservar_libro(request, id):
 

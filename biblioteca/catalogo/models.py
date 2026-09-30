@@ -12,9 +12,7 @@ class Libro(models.Model):
 class Reserva(models.Model):
 
    libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
-
    nombre = models.CharField(max_length=200)
-
    fecha = models.DateTimeField(auto_now_add=True)
 
    def __str__(self):

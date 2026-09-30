@@ -7,20 +7,29 @@
 
 <body>
     <h1>Biblioteca - Sebastian</h1>
-    {% for libro in libros %}
+    {% for item in libros %}
     <div>
-        <h3>{{ libro.titulo }}</h3>
-        <p>{{ libro.autor }}</p>
+        <h3>{{ item.libro.titulo }}</h3>
+        <p>{{ item.libro.autor }}</p>
+        {% if item.reservado %}
+        <p style="color:red">
+            Libro reservado
+        </p>
 
-        <a href="/reservar/{{ libro.id }}">
+        {% else %}
+
+        <a href="/reservar/{{ item.libro.id }}">
             Reservar libro
         </a>
+
+        {% endif %}
 
     </div>
 
     <hr>
 
     {% endfor %}
+
 
 </body>
 
